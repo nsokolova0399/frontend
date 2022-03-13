@@ -4,7 +4,11 @@
       <div class="row NK">
         <div class="col-lg-8 col-md-8 col-xs-2 text-center"><a><router-link to="/Home">Научный личный кабинет</router-link></a></div>
         <div class="col-lg-1 col-md-1 col-xs-2 text-center"><a><router-link to="/LogIn">Вход</router-link></a></div>
-        <div class="col-lg-1 col-md-1 col-xs-2 text-center"><a><router-link to="/SignUp">Регистрация</router-link></a></div>
+        <div class="col-lg-1 col-md-1 col-xs-2 text-center">
+
+          <a ><router-link to="/SignUp">Регистрация</router-link></a>
+
+        </div>
       </div>
     </header>
 <router-view></router-view>
@@ -21,7 +25,7 @@
 <script>
   export default {
     name: 'app',
-  }
+   }
 </script>
 
 <style>

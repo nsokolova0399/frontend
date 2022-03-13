@@ -25,7 +25,8 @@ export const LOGIN_MUTATION = gql`
             },
             success,
             errors,
-            token
+            token,
+            refreshToken
         }
     }
 `

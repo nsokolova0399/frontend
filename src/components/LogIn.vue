@@ -54,7 +54,6 @@
                 password: '',
             }
         },
-
         methods: {
             async login () {
                 this.$apollo
@@ -70,6 +69,7 @@
                             alert("Неверные данные")
                         }else{
                             localStorage.setItem('token', data.data.tokenAuth.token)
+                            // localStorage.setItem('refresh', data.data.tokenAuth.refresh)
                             this.$router.push('/LogIn/Menu')
                         }
                     })
@@ -125,7 +125,6 @@
         background-color: #9a4a4a;
         border-color: #bb7171;
         box-shadow:0 0 0 rgba(0, 0, 0, 0);
-
     }
 
 </style>

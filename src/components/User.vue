@@ -2,16 +2,25 @@
 <div class="User">
     <Menu></Menu>
     <div class="row">
-        <div class="col-lg-4 col-md-3 col-xs-4"></div>
-        <div class="col-lg-4 col-md-6 col-xs-4 ContainerUserChangePassword">
+        <div class="col-lg-4 col-md-3 col-4">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-3"></div>
+                <div class="col-lg-4 col-md-5 col-9 ContainerMenu">
+                    <a><router-link to="/LogIn/Menu">Назад</router-link></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-7 ContainerUserChangePassword">
             <b-form method="POST" @submit.prevent="changeUser">
-                <div class="row"><div class="col-lg-12 col-md-12 col-xs-12 text-center"> <label class="labelForm LK">Личный кабинет</label></div></div>
                 <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-xs-10 Input" v-if="me" >
-                        <div class="row">
-                            <div class="col-lg-1 col-md-1 col-xs-1 labelForm">Имя:</div>
-                            <div class="col-lg-9 col-md-9 col-xs-9 text-left">
+                    <div class="col-lg-12 col-md-12 col-12 text-center">
+                        <label class="labelForm LK">Личный кабинет</label>
+                    </div>
+                </div>
+                <div class="row" v-if="me">
+                    <div class="col-lg-1 col-md-1 col-1"></div>
+                            <div class="col-lg-1 col-md-2 col-2 labelForm">Имя:</div>
+                            <div class="col-lg-8 col-md-8 col-8 text-left">
                                  <b-input
                                     class="inputForm"
                                     v-model="me.firstName"
@@ -21,15 +30,11 @@
                                     :readonly="status"
                                  ></b-input>
                             </div>
-                         </div>
-                     </div>
                  </div>
-                <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-xs-10 Input" v-if="me" >
-                        <div class="row">
-                            <div class="col-lg-2 col-md-2 col-xs-2 labelForm">Фамилия:</div>
-                            <div class="col-lg-9 col-md-9 col-xs-9 text-left">
+                <div class="row" v-if="me">
+                    <div class="col-lg-1 col-md-1 col-1"></div>
+                            <div class="col-lg-2 col-md-3 col-3  labelForm">Фамилия:</div>
+                            <div class="col-lg-7 col-md-7 col-7 text-left">
                                 <b-input
                                 class="inputForm"
                                 v-model="me.lastName"
@@ -39,33 +44,25 @@
                                 :readonly="status"
                                 ></b-input>
                             </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-xs-10 Input" v-if="me" >
+                    <div class="col-lg-1 col-md-1 col-1"></div>
+                    <div class="col-lg-10 col-md-8 col-sm-6 col-6 Input" v-if="me" >
                         <label class="labelForm">Логин: </label>
                             {{me.username}}
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-xs-10 Input" v-if="me">
+                    <div class="col-lg-1 col-md-1 col-1"></div>
+                    <div class="col-lg-10 col-md-10 col-10 Input" v-if="me">
                         <label class="labelForm">E-mail: </label>
                             {{me.email}}
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-xs-10">
+                    <div class="col-lg-1 col-md-1 col-1"></div>
+                    <div class="col-lg-10 col-md-10 col-10">
                          <label class="labelForm smallChangePassword"><a><router-link to="/LogIn/Menu/User/ChangePassword">Поменять пароль</router-link> </a></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-xs-10">
-                        <label class="labelForm smallChangePassword"><a><router-link to="/LogIn/Menu/User/DeleteUser">Удалить аккаунт</router-link> </a></label>
                     </div>
                 </div>
                 <div class="row">
@@ -86,14 +83,7 @@
                 </div>
             </b-form>
         </div>
-        <div class="col-lg-4 col-md-3 col-xs-4">
-            <div class="row">
-                <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-6 col-md-6 col-xs-6 ContainerMenu">
-                      <a><router-link to="/LogIn/Menu">Назад</router-link></a>
-                     </div>
-                </div>
-             </div>
+        <div class="col-lg-4 col-md-3 col-1"></div>
         </div>
 </div>
 </template>
@@ -122,6 +112,7 @@
                 query: ME_QUERY,
             },
         },
+
         methods:{
             clicked(){
                 this.status = false
@@ -137,10 +128,11 @@
                     })
                     .then(data => {
                         if(data.data.updateAccount.success){
-                            alert('Изменения сохранены')
                             this.status = true
+                            alert('Изменения сохранены')
                         }
                     })
+
             },
         }
     }
@@ -159,7 +151,6 @@
         border-radius: 45px;
         min-height: 7%;
         text-decoration: none;
-        /*padding-top: 1%;*/
         margin-top: 4%;
         padding-bottom: 1%;
         font-weight: bold;
@@ -182,7 +173,6 @@
         background-color: rgba(253, 239, 221, 255)!important;
         border-color: rgb(205, 193, 179);
     }
-
      .LK{
          font-weight: bold;
          color: #791c1c;
@@ -216,4 +206,8 @@
     .text-center{
         padding-top: 2%;
     }
+    .text-left{
+        padding-left: 1%;
+    }
+
 </style>
