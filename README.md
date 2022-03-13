@@ -1,24 +1,26 @@
-# untitled
+# Личный кабинет пользователя Vue+GraphQL+Django
+Данный проект был реализован в рамках курсовой работы и пока ещё не завершен до конца.
+Все работы по фронтенд-проекту выполнялись мой. Базу данных создавал мой сокурсник.
+Здесь представлены загруженные файлы проекта, так как сам проект находится в закрытой учебной группе на GitLab.
+![image](https://user-images.githubusercontent.com/87518745/158064854-577cecf8-5df1-4d95-a931-dffa52f811fa.png)
+Краткий обзор:
+1) Проходим регистрацию. Поля имеют валидацию.
+![image](https://user-images.githubusercontent.com/87518745/158064883-12f32800-419f-4e9b-badf-8ebb26775621.png)
+2)После регистрации необходимо авторизировать пользователя. На данный момент это необходимо сделать вручную. То есть отправить запрос к базе данных. Потом, это будет приходить пользователю на почту.
+Копируем токен в проекте Django:
+![image](https://user-images.githubusercontent.com/87518745/158065211-e67aa70b-97cb-4a7f-aad7-58f3a0238755.png)
+Отправляем запрос в GraphQL:
+![image](https://user-images.githubusercontent.com/87518745/158065282-5b9c3254-b2c3-4fc4-b9fc-57833730c207.png)
+В ответе на запрос получаем success. Таким образом, теперь пользователь проходит верификацию.
 
-## Project setup
-```
-npm install
-```
+3) Далее заходим в личный кабинет
+![image](https://user-images.githubusercontent.com/87518745/158065661-380ff484-3ed6-49f4-8cc8-295f1246be28.png)
+4) Так выглядит меню:
+![image](https://user-images.githubusercontent.com/87518745/158065685-189cc499-7fc7-44fe-9363-51a8f3a64d17.png)
+5)Так выглядит профиль:
+![image](https://user-images.githubusercontent.com/87518745/158065710-f32d84c9-b445-4df3-8f81-d95071432849.png)
+6)На данный момент можно изменить Имя/Фамилию пользователя, сохранить их.
+![image](https://user-images.githubusercontent.com/87518745/158065748-5257c607-95b3-47b4-afee-8b988e14f0df.png)
+7)Также можно изменить пароль, если пользователь помнит старый пароль.
+![image](https://user-images.githubusercontent.com/87518745/158065837-4e3622e5-7dfa-4414-b690-8deb30ba0616.png)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
