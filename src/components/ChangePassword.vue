@@ -5,57 +5,57 @@
             <div class="col-lg-4 col-md-4 col-xs-4"></div>
             <div class="col-lg-4 col-md-4 col-xs-4 ContainerUserChangePassword">
                 <b-form method="POST" @submit.prevent="change">
-                <div class="row"><div class="col-lg-12 col-md-12 col-xs-12 text-center"> <label class="labelForm LK">Изменение пароля</label></div></div>
-                <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-xs-10">
-                        <label class="labelForm">Введите старый пароль: </label>
-                        <b-input
-                                class="Input"
-                                :class="{invalid: ($v.oldPassword.$dirty && !$v.oldPassword.required) }"
-                                v-model="oldPassword"
-                                type="password"
-                                id="oldPassword"
-                                placeholder="Старый пароль...">
-                        </b-input>
-                        <small class="smallChangePassword" v-if="$v.oldPassword.$dirty && !$v.oldPassword.required">Введите пароль</small>
+                    <div class="row"><div class="col-lg-12 col-md-12 col-xs-12 text-center"> <label class="labelForm LK">Изменение пароля</label></div></div>
+                    <div class="row">
+                        <div class="col-lg-1 col-md-1 col-xs-1"></div>
+                        <div class="col-lg-10 col-md-10 col-xs-10">
+                            <label class="labelForm">Введите старый пароль: </label>
+                            <b-input
+                                    class="Input"
+                                    :class="{invalid: ($v.oldPassword.$dirty && !$v.oldPassword.required) }"
+                                    v-model="oldPassword"
+                                    type="password"
+                                    id="oldPassword"
+                                    placeholder="Старый пароль...">
+                            </b-input>
+                            <small class="smallChangePassword" v-if="$v.oldPassword.$dirty && !$v.oldPassword.required">Введите пароль</small>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-xs-10">
-                        <label class="labelForm">Введите новый пароль: </label>
-                        <b-input
-                                class="Input"
-                                :class="{invalid: ($v.newPassword1.$dirty && !$v.newPassword1.required) || ($v.newPassword1.$dirty && !$v.newPassword1.minLength)}"
-                                v-model="newPassword1"
-                                type="password"
-                                id="newPassword1"
-                                placeholder="Новый пароль...">
-                        </b-input>
-                        <small class="smallChangePassword" v-if="$v.newPassword1.$dirty && !$v.newPassword1.required">Введите новый пароль</small>
-                        <small class="smallChangePassword" v-else-if="$v.newPassword1.$dirty && !$v.newPassword1.minLength">
-                            Пароль должен быть {{$v.newPassword1.$params.minLength.min}} символов. Сейчас он {{newPassword1.length}}
-                        </small>
+                    <div class="row">
+                        <div class="col-lg-1 col-md-1 col-xs-1"></div>
+                        <div class="col-lg-10 col-md-10 col-xs-10">
+                            <label class="labelForm">Введите новый пароль: </label>
+                            <b-input
+                                    class="Input"
+                                    :class="{invalid: ($v.newPassword1.$dirty && !$v.newPassword1.required) || ($v.newPassword1.$dirty && !$v.newPassword1.minLength)}"
+                                    v-model="newPassword1"
+                                    type="password"
+                                    id="newPassword1"
+                                    placeholder="Новый пароль...">
+                            </b-input>
+                            <small class="smallChangePassword" v-if="$v.newPassword1.$dirty && !$v.newPassword1.required">Введите новый пароль</small>
+                            <small class="smallChangePassword" v-else-if="$v.newPassword1.$dirty && !$v.newPassword1.minLength">
+                                Пароль должен быть {{$v.newPassword1.$params.minLength.min}} символов. Сейчас он {{newPassword1.length}}
+                            </small>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-xs-10">
-                        <label class="labelForm">Повторите пароль: </label>
-                        <b-input
-                                class="Input"
-                                :class="{invalid: ($v.newPassword2.$dirty && !$v.newPassword2.required) || ($v.newPassword2.$dirty && !$v.newPassword2.minLength)}"
-                                v-model="newPassword2"
-                                type="password"
-                                id="newPassword2"
-                                placeholder="Повторите пароль...">
-                        </b-input>
-                        <small class="smallChangePassword" v-if="$v.newPassword2.$dirty && !$v.newPassword2.required">Повторите пароль</small>
-                        <small class="smallChangePassword" v-else-if="$v.newPassword1.$model == $v.newPassword2.$model"></small>
-                        <small class="smallChangePassword" v-else-if="$v.newPassword1.$model != $v.newPassword2.$model">Пароли не совпадают</small>
+                    <div class="row">
+                        <div class="col-lg-1 col-md-1 col-xs-1"></div>
+                        <div class="col-lg-10 col-md-10 col-xs-10">
+                            <label class="labelForm">Повторите пароль: </label>
+                            <b-input
+                                    class="Input"
+                                    :class="{invalid: ($v.newPassword2.$dirty && !$v.newPassword2.required) || ($v.newPassword2.$dirty && !$v.newPassword2.minLength)}"
+                                    v-model="newPassword2"
+                                    type="password"
+                                    id="newPassword2"
+                                    placeholder="Повторите пароль...">
+                            </b-input>
+                            <small class="smallChangePassword" v-if="$v.newPassword2.$dirty && !$v.newPassword2.required">Повторите пароль</small>
+                            <small class="smallChangePassword" v-else-if="$v.newPassword1.$model == $v.newPassword2.$model"></small>
+                            <small class="smallChangePassword" v-else-if="$v.newPassword1.$model != $v.newPassword2.$model">Пароли не совпадают</small>
+                        </div>
                     </div>
-                </div>
                     <div class="row">
                         <div class="col-lg-1 col-md-1 col-xs-1"></div>
                         <div class="col-lg-10 col-md-10 col-xs-10">
